@@ -7,7 +7,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import ReposList from 'components/ReposList';
 import './style.scss';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -59,7 +58,6 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
                 />
               </label>
             </form>
-            <ReposList {...reposListProps} />
           </section>
         </div>
       </article>
