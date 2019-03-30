@@ -13,13 +13,23 @@
     text-align: right;
 
     input[type="text"] {
+      transition: width 0.5s;
       height: 100%;
       width: 0;
-      border: 0;
+      border: 0; 
     }
+
+    &--opened {
+      input[type="text"] { 
+        width: 90%;
+      }
+    }
+
+
 
     button {
       height: 100%;
+      width: 10%;
     }
   } 
 }
