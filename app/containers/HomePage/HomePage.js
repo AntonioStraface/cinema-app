@@ -7,6 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import Header from 'components/Header';
 import './style.scss';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -31,11 +32,12 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
     };
 
     return (
-      <article>
+      <React.Fragment>
         <Helmet>
           <title>Home Page</title>
           <meta name="description" content="A React.js Boilerplate application homepage" />
         </Helmet>
+        <Header handlerOnInput="asds" />
         <div className="home-page">
           <section className="centered">
             <h2>Start your next react project in seconds</h2>
@@ -60,7 +62,7 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
             </form>
           </section>
         </div>
-      </article>
+      </React.Fragment>
     );
   }
 }

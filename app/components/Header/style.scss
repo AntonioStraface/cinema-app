@@ -1,3 +1,25 @@
 .header {
- 
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+
+  &__logo {
+    flex-grow: 1;
+  }
+
+  &__search-form {
+    height: 100%;
+    flex-grow: 4;
+    text-align: right;
+
+    input[type="text"] {
+      height: 100%;
+      width: 0;
+      border: 0;
+    }
+
+    button {
+      height: 100%;
+    }
+  } 
 }
