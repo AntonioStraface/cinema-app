@@ -15,18 +15,18 @@
  *    }
  */
 
-import { CHANGE_USERNAME } from './constants';
+import { OPEN_SEARCH } from './constants';
 
 /**
- * Changes the input field of the form
+ * clicked button on form
  *
- * @param  {name} name The new text of the input field
+ * @param  {name} name The new text of
  *
- * @return {object}    An action object with a type of CHANGE_USERNAME
+ * @return {object}    An action object with a type of CHANGE_CLASS_HEADER
  */
-export function changeUsername(name) {
+
+export function openSearch() {
   return {
-    type: CHANGE_USERNAME,
-    name
-  };
+    type: OPEN_SEARCH
+  }
 }

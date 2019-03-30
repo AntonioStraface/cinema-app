@@ -7,23 +7,26 @@ import {
   makeSelectLoading,
   makeSelectError
 } from 'containers/App/selectors';
+import {
+  makeSelectSearchStatus
+} from './selectors';
 
-import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import HomePage from './HomePage';
+import {openSearch} from './actions';
 
 const mapDispatchToProps = (dispatch) => ({
-  onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
-  onSubmitForm: (evt) => {
-    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-  //    dispatch(loadRepos());
+  handlerOpenSearch:(evt) => { 
+    evt.preventDefault(); 
+    dispatch(openSearch());  
   }
 });
 
 const mapStateToProps = createStructuredSelector({
   loading: makeSelectLoading(),
-  error: makeSelectError()
+  error: makeSelectError(),
+  searchStatus: makeSelectSearchStatus()
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
