@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.scss';
+import Batman from './images/batman-old.png';
 
 import PropTypes from 'prop-types';
 
@@ -16,10 +17,12 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
 
     return (
       <header className="header">
-        <a href="/" className="header__logo">LOGO</a>
+        <a className="header__logo" href="/">
+          <img src={Batman} title="Batman is here" />
+        </a>
         <form className={formClassName} method="get" action="" onSubmit={handlerOpenSearch}>
           <input type="text" placeholder="Search your movie here" />
-          <button type={buttonType}>c</button>
+          <button type={buttonType}  className="fas fa-search"></button>
         </form>
       </header>
     );
