@@ -20,6 +20,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
         <a className="header__logo" href="/">
           <img src={Batman} title="Batman is here" />
         </a>
+        <h1 className="header__title">CINEMA APP</h1>
         <form className={formClassName} method="get" action="" onSubmit={handlerOpenSearch}>
           <input type="text" autoFocus={true} onKeyUp={handlerResultList} placeholder="Search your movie here" />
           <button type={buttonType}  className="fas fa-search"></button>

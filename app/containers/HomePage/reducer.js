@@ -16,7 +16,7 @@ import { OPEN_SEARCH, LOAD_MOVIES, LOAD_MOVIES_SUCCESS, LOAD_MOVIES_ERROR } from
 // The initial state of the App
 const initialState = fromJS({
   searchStatus: '',
-  listItems: [],
+  listItems: null,
   loading: false,
   error: false
 });

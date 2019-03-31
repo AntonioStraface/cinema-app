@@ -17,7 +17,7 @@ import {makeSelectSearchText } from './selectors';
 export function* getMovies() {
   const parameter = yield select(makeSelectSearchText());
 
-  const requestURL = `http://www.omdbapi.com/?s=${parameter}&apikey=aaac1593`;
+  const requestURL = `http://www.omdbapi.com/?s=${parameter}&type=movie&apikey=aaac1593`;
 
   try {
     // Call our request helper (see 'utils/request')

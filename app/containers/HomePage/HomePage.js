@@ -21,28 +21,24 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
       handlerOpenSearch,handlerResultList,searchStatus,listItems
     } = this.props;
 
-    debugger;
-
+    let listItemsProp = !listItems ? [] : listItems;
+ 
     return (
       <React.Fragment>
         <Helmet>
           <title>Home Page</title>
           <meta name="description" content="A React.js Boilerplate application homepage" />
         </Helmet>
-        <Header handlerResultList={handlerResultList} handlerOpenSearch={handlerOpenSearch} searchStatus={searchStatus} />
+        <Header 
+          handlerResultList={handlerResultList} 
+          handlerOpenSearch={handlerOpenSearch} 
+          searchStatus={searchStatus} />
         <div className="home-page">
-            <SearchList listItems={listItems}  />
-          <section>
-            <h2>Try me!</h2>
-          </section>
+            <SearchList listItems={listItemsProp}  />
         </div>
       </React.Fragment>
     );
   }
-}
-
-HomePage.defaultProps = {
-  listItems: []
 }
 
 HomePage.propTypes = {

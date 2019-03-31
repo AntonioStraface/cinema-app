@@ -1,4 +1,7 @@
 .home-page {
-  
-  
+  margin-top: 48px;
+      
+  @media (min-width: 1280px) {
+    margin-top: 70px;
+  }
 }
