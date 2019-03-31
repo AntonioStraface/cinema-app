@@ -9,7 +9,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
 
   render() {
 
-    const { handlerOpenSearch, searchStatus } = this.props;
+    const { handlerOpenSearch, searchStatus, handlerResultList } = this.props;
 
     let formClassName = searchStatus !== 'opened' ? 'header__search-form' : 'header__search-form header__search-form--opened';
     let buttonType = searchStatus !== 'opened' ? 'submit' : 'reset';  
@@ -21,7 +21,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
           <img src={Batman} title="Batman is here" />
         </a>
         <form className={formClassName} method="get" action="" onSubmit={handlerOpenSearch}>
-          <input type="text" placeholder="Search your movie here" />
+          <input type="text" autoFocus={true} onKeyUp={handlerResultList} placeholder="Search your movie here" />
           <button type={buttonType}  className="fas fa-search"></button>
         </form>
       </header>
@@ -31,11 +31,13 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
 
 Header.defaultProps = {
   handlerOpenSearch : () => {},
+  handlerResultList: () => {},
   searchStatus : ''
 }
 
 Header.propTypes = {
   handlerOpenSearch: PropTypes.func,
+  handlerResultList: PropTypes.func,
   searchStatus: PropTypes.string
 }
 

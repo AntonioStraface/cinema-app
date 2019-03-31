@@ -8,25 +8,32 @@ import {
   makeSelectError
 } from 'containers/App/selectors';
 import {
-  makeSelectSearchStatus
+  makeSelectSearchStatus,
+  makeListOfMovies
 } from './selectors';
 
 import reducer from './reducer';
 import saga from './saga';
 import HomePage from './HomePage';
-import {openSearch} from './actions';
+import {openSearch, loadMovies} from './actions';
 
 const mapDispatchToProps = (dispatch) => ({
   handlerOpenSearch:(evt) => { 
     evt.preventDefault(); 
     dispatch(openSearch());  
-  }
+  },
+  handlerResultList:(evt) => {
+    if(evt.target.value.trim().length > 2) {
+      dispatch(loadMovies(evt.target.value.trim()));
+    } 
+  },
 });
 
 const mapStateToProps = createStructuredSelector({
   loading: makeSelectLoading(),
   error: makeSelectError(),
-  searchStatus: makeSelectSearchStatus()
+  searchStatus: makeSelectSearchStatus(),
+  listItems: makeListOfMovies()
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

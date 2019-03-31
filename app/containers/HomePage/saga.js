@@ -1,37 +1,39 @@
 /**
- * Gets the repositories of the user from Github
+ * Gets the movies from punk api
  */
 
 import {
   call, put, select, takeLatest
 } from 'redux-saga/effects';
+import { LOAD_MOVIES } from './constants';
+import {moviesLoaded,moviesLoadingError} from './actions'
 
 import request from 'utils/request';
+import {makeSelectSearchText } from './selectors';
 
 /**
- * Github repos request/response handler
+ * punk api beers request/response handler
  */
-export function* getRepos() {
-  // Select username from store
-  const username = "";
-  const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
+export function* getMovies() {
+  const parameter = yield select(makeSelectSearchText());
+
+  const requestURL = `http://www.omdbapi.com/?s=${parameter}&apikey=aaac1593`;
 
   try {
     // Call our request helper (see 'utils/request')
-    const repos = yield call(request, requestURL);
-    yield put(reposLoaded(repos, username));
+    const response = yield call(request, requestURL);
+    yield put(moviesLoaded(response, parameter));
   } catch (err) {
-    yield put(repoLoadingError(err));
+    yield put(moviesLoadingError(err));
   }
 }
 
 /**
  * Root saga manages watcher lifecycle
  */
-export default function* githubData() {
-  // Watches for LOAD_REPOS actions and calls getRepos when one comes in.
+export default function* getMoviesData() {
+  // Watches for LOAD_MOVIES actions and calls getMovies when one comes in.
   // By using `takeLatest` only the result of the latest API call is applied.
-  // It returns task descriptor (just like fork) so we can continue execution
   // It will be cancelled automatically on component unmount
-  yield takeLatest("DSFDF", getRepos);
+  yield takeLatest(LOAD_MOVIES, getMovies);
 }
