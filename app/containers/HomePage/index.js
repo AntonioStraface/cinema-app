@@ -15,7 +15,7 @@ import {
 import reducer from './reducer';
 import saga from './saga';
 import HomePage from './HomePage';
-import {openSearch, loadMovies} from './actions';
+import {openSearch, loadMovies, closeSearch} from './actions';
 
 const mapDispatchToProps = (dispatch) => ({
   handlerOpenSearch:(evt) => { 
@@ -27,6 +27,9 @@ const mapDispatchToProps = (dispatch) => ({
       dispatch(loadMovies(evt.target.value.trim()));
     } 
   },
+  handlerCloseSearch:(evt) => {
+    dispatch(closeSearch());
+  }
 });
 
 const mapStateToProps = createStructuredSelector({

@@ -10,6 +10,7 @@
  */
 
 export const OPEN_SEARCH = 'cinema-app/Home/SEARCH_OPENED';
+export const CLOSE_SEARCH = 'cinema-app/Home/CLOSE_SEARCH';
 export const LOAD_MOVIES = 'cinema-app/Home/LOAD_MOVIES';
 export const LOAD_MOVIES_ERROR = 'cinema-app/Home/LOAD_MOVIES_ERROR';
 export const LOAD_MOVIES_SUCCESS = 'cinema-app/Home/LOAD_MOVIES_SUCCESS';

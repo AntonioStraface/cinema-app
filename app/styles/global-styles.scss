@@ -1,5 +1,9 @@
 * {
   outline: none;
+
+  &::-ms-clear {
+    display: none;
+  }
 }
 
 html,

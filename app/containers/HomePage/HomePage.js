@@ -18,7 +18,7 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
 
   render() {
     const {
-      handlerOpenSearch,handlerResultList,searchStatus,listItems
+      handlerOpenSearch,handlerResultList, handlerCloseSearch,searchStatus,listItems
     } = this.props;
 
     let listItemsProp = !listItems ? [] : listItems;
@@ -32,6 +32,7 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
         <Header 
           handlerResultList={handlerResultList} 
           handlerOpenSearch={handlerOpenSearch} 
+          handlerCloseSearch={handlerCloseSearch}
           searchStatus={searchStatus} />
         <div className="home-page">
             <SearchList listItems={listItemsProp}  />
@@ -46,6 +47,7 @@ HomePage.propTypes = {
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   handlerOpenSearch: PropTypes.func,
   handlerResultList: PropTypes.func,
+  handlerCloseSearch: PropTypes.func,
   searchStatus: PropTypes.string,
   listItems: PropTypes.array
 };

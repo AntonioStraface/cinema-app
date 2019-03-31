@@ -15,10 +15,10 @@
  *    }
  */
 
-import { OPEN_SEARCH, LOAD_MOVIES, LOAD_MOVIES_ERROR, LOAD_MOVIES_SUCCESS } from './constants';
+import { OPEN_SEARCH, CLOSE_SEARCH,LOAD_MOVIES, LOAD_MOVIES_ERROR, LOAD_MOVIES_SUCCESS } from './constants';
 
 /**
- * clicked button on form
+ * clicked button lens on form
  *
  * @return {object}    An action object with a type of OPEN_SEARCH
  */
@@ -26,6 +26,18 @@ import { OPEN_SEARCH, LOAD_MOVIES, LOAD_MOVIES_ERROR, LOAD_MOVIES_SUCCESS } from
 export function openSearch() {
   return {
     type: OPEN_SEARCH
+  }
+}
+
+/**
+ * clicked button close on form
+ *
+ * @return {object}   An action object with a type of CLOSE_SEARCH
+ */
+
+export function closeSearch() {
+  return {
+    type: CLOSE_SEARCH
   }
 }
 
