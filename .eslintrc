@@ -20,6 +20,7 @@
     "function-paren-newline": "off",
     "arrow-parens": ["error", "always"],
     "arrow-body-style": [2, "as-needed"],
+    "implicit-arrow-linebreak": [0],
     "comma-dangle": ["error", "only-multiline"],
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,
