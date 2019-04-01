@@ -15,7 +15,7 @@
  *    }
  */
 
-import { OPEN_SEARCH, CLOSE_SEARCH,LOAD_MOVIES, LOAD_MOVIES_ERROR, LOAD_MOVIES_SUCCESS } from './constants';
+import {OPEN_SEARCH, CLOSE_SEARCH, LOAD_MOVIES, LOAD_MOVIES_ERROR, LOAD_MOVIES_SUCCESS} from './constants';
 
 /**
  * clicked button lens on form
@@ -26,7 +26,7 @@ import { OPEN_SEARCH, CLOSE_SEARCH,LOAD_MOVIES, LOAD_MOVIES_ERROR, LOAD_MOVIES_S
 export function openSearch() {
   return {
     type: OPEN_SEARCH
-  }
+  };
 }
 
 /**
@@ -38,52 +38,50 @@ export function openSearch() {
 export function closeSearch() {
   return {
     type: CLOSE_SEARCH
-  }
+  };
 }
 
 /**
  * clicked button on form
- * 
+ *
  * @param  {string}    Text written on search form by user
- * 
+ *
  * @return {object}    An action object with a type of LOAD_MOVIES
  */
 
-
 export function loadMovies(text) {
   return {
-    text: text,
+    text,
     type: LOAD_MOVIES
-  }
+  };
 }
 
+/**
+ * Dispatched when the movies are loaded by the request saga
+ *
+ * @param  {array} movies The movies Matched with movie name
+ * @param  {string} movieText The written movie name
+ *
+ * @return {object}      An action object with a type of LOAD_BEERS_SUCCESS passing the beers
+ */
+export function moviesLoaded(movies, movieText) {
+  return {
+    type: LOAD_MOVIES_SUCCESS,
+    movies,
+    movieText
+  };
+}
 
-  /**
-   * Dispatched when the movies are loaded by the request saga
-   *
-   * @param  {array} movies The movies Matched with movie name
-   * @param  {string} movieText The written movie name
-   *
-   * @return {object}      An action object with a type of LOAD_BEERS_SUCCESS passing the beers
-   */
-  export function moviesLoaded(movies, movieText) {
-    return {
-      type: LOAD_MOVIES_SUCCESS,
-      movies,
-      movieText,
-    };
-  }
-  
-  /**
-   * Dispatched when loading the movies fails
-   *
-   * @param  {object} error The error
-   *
-   * @return {object}       An action object with a type of LOAD_MOVIES_ERROR passing the error
-   */
-  export function moviesLoadingError(error) {
-    return {
-      type: LOAD_MOVIES_ERROR,
-      error,
-    };
-  }
+/**
+ * Dispatched when loading the movies fails
+ *
+ * @param  {object} error The error
+ *
+ * @return {object}       An action object with a type of LOAD_MOVIES_ERROR passing the error
+ */
+export function moviesLoadingError(error) {
+  return {
+    type: LOAD_MOVIES_ERROR,
+    error
+  };
+}

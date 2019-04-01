@@ -9,9 +9,9 @@
  * case YOUR_ACTION_CONSTANT:
  *   return state.set('yourStateVariable', true);
  */
-import { fromJS } from 'immutable';
+import {fromJS} from 'immutable';
 
-import { OPEN_SEARCH, CLOSE_SEARCH,LOAD_MOVIES, LOAD_MOVIES_SUCCESS, LOAD_MOVIES_ERROR } from './constants';
+import {OPEN_SEARCH, CLOSE_SEARCH, LOAD_MOVIES, LOAD_MOVIES_SUCCESS, LOAD_MOVIES_ERROR} from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
@@ -24,9 +24,9 @@ const initialState = fromJS({
 function homeReducer(state = initialState, action) {
   switch (action.type) {
     case OPEN_SEARCH:
-      return state.set('searchStatus', 'opened')
+      return state.set('searchStatus', 'opened');
     case CLOSE_SEARCH:
-      return state.set('searchStatus', 'closed')
+      return state.set('searchStatus', 'closed');
     case LOAD_MOVIES:
       return state
         .set('searchedText', action.text)
@@ -34,7 +34,7 @@ function homeReducer(state = initialState, action) {
         .set('error', false);
     case LOAD_MOVIES_SUCCESS:
       return state
-        .setIn(['listItems'], action.movies.Response == "True" ? action.movies.Search : [])
+        .setIn(['listItems'], action.movies.Response === 'True' ? action.movies.Search : [])
         .set('loading', false)
         .set('searchedText', action.movieText);
     case LOAD_MOVIES_ERROR:
@@ -46,7 +46,5 @@ function homeReducer(state = initialState, action) {
       return state;
   }
 }
-
-
 
 export default homeReducer;

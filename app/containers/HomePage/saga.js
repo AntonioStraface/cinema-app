@@ -2,14 +2,12 @@
  * Gets the movies from punk api
  */
 
-import {
-  call, put, select, takeLatest
-} from 'redux-saga/effects';
-import { LOAD_MOVIES } from './constants';
-import {moviesLoaded,moviesLoadingError} from './actions'
-
+import {call, put, select, takeLatest} from 'redux-saga/effects';
 import request from 'utils/request';
-import {makeSelectSearchText } from './selectors';
+
+import {moviesLoaded, moviesLoadingError} from './actions';
+import {makeSelectSearchText} from './selectors';
+import {LOAD_MOVIES} from './constants';
 
 /**
  * punk api beers request/response handler
