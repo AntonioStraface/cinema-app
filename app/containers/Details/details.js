@@ -9,10 +9,12 @@ import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
 import Header from 'components/Header';
 
+import ArticleDetails from 'components/ArticleDetails';
+
 import './style.scss';
 
 export default class Details extends React.PureComponent {
-  componentDidMount() {
+  componentWillMount() {
     const {getFilmDetails, match} = this.props;
     getFilmDetails(match.params.id);
   }
@@ -20,16 +22,17 @@ export default class Details extends React.PureComponent {
   render() {
     const {detailOfFilm} = this.props;
 
-    console.log(detailOfFilm);
+    debugger;
 
+    const detail = detailOfFilm.Ratings !== undefined ? <ArticleDetails item={detailOfFilm} /> : null;
     return (
       <React.Fragment>
         <Helmet>
           <title>Details Page</title>
           <meta name="description" content="Detail of film" />
         </Helmet>
-        <Header showIcons />
-        <div className="detail" />
+        <Header showForm />
+        {detail}
       </React.Fragment>
     );
   }

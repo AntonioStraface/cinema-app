@@ -15,7 +15,7 @@ import {LOAD_DETAIL_MOVIE} from './constants';
 export function* getMovieDetails() {
   const parameter = yield select(makeSelectId());
 
-  const requestURL = `http://www.omdbapi.com/?i=${parameter}&apikey=aaac1593`;
+  const requestURL = `http://www.omdbapi.com/?i=${parameter}&apikey=aaac1593&plot=full`;
 
   try {
     // Call our request helper (see 'utils/request')

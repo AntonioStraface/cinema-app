@@ -15,7 +15,7 @@ import {LOAD_DETAIL_MOVIE, SUCCESS_DETAIL_MOVIE, LOAD_MOVIE_ERROR} from './const
 
 // The initial state of the App
 const initialState = fromJS({
-  detailsOfFilm: '',
+  detailsOfFilm: {},
   imdbId: '',
   loading: false,
   error: false

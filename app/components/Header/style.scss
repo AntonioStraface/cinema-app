@@ -5,6 +5,9 @@
   background-color: #1c1c1c;
   position: fixed;
   width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0 10px;
 
   @media (min-width: 1280px) {
     height: 70px;
@@ -23,7 +26,7 @@
     left: 50%;
     top: 50%;
     color: white;
-    transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%, -50%, 0);
     margin: 0;
     padding: 0;
     font-size: 20px;
@@ -34,11 +37,11 @@
     flex-grow: 4;
     text-align: right;
 
-    input[type="text"] {
+    input[type='text'] {
       transition: width 0.5s;
       height: 100%;
       width: 0;
-      border: 0; 
+      border: 0;
       padding: 0;
       color: #a9a9a9;
       background-color: #1c1c1c;
@@ -55,36 +58,35 @@
       font-size: 20px;
       position: absolute;
       top: 0;
-      right: 0;
+      right: 10px;
       cursor: pointer;
       background-color: #1c1c1c;
 
-      &[type=reset] {
+      &[type='reset'] {
         z-index: 1;
         opacity: 0;
       }
 
-      &[type=submit] {
+      &[type='submit'] {
         z-index: 2;
         opacity: 1;
       }
     }
 
-    
     &--opened {
-      input[type="text"] { 
-        width: calc(100% - 40px); 
+      input[type='text'] {
+        width: calc(100% - 40px);
       }
 
-      button[type=reset] {
+      button[type='reset'] {
         z-index: 2;
         opacity: 1;
       }
 
-      button[type=submit] {
+      button[type='submit'] {
         z-index: 1;
         opacity: 0;
       }
     }
-  } 
+  }
 }
