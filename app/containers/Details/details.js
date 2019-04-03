@@ -22,8 +22,6 @@ export default class Details extends React.PureComponent {
   render() {
     const {detailOfFilm} = this.props;
 
-    debugger;
-
     const detail = detailOfFilm.Ratings !== undefined ? <ArticleDetails item={detailOfFilm} /> : null;
     return (
       <React.Fragment>

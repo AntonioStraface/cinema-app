@@ -8,8 +8,6 @@ class ArticleDetails extends React.Component {
   render() {
     const {item} = this.props;
 
-    debugger;
-
     return (
       <article className="articleDetails" key={item.imdbID}>
         <div className="articleDetails__first-block">
