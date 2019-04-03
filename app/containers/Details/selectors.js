@@ -18,4 +18,10 @@ const makeDetailsOfFilm = () =>
     (detailState) => detailState.get('detailsOfFilm')
   );
 
-export {makeDetailsOfFilm, makeSelectId};
+const makeDetailsOfUser = () => 
+  createSelector(
+    selectDetails,
+    (detailState) => detailState.get('detailsOfUser') 
+  )
+
+export {makeDetailsOfFilm, makeSelectId,makeDetailsOfUser};

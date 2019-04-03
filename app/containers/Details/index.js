@@ -3,7 +3,7 @@ import {compose} from 'redux';
 import {createStructuredSelector} from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import {makeDetailsOfFilm} from './selectors';
+import {makeDetailsOfFilm, makeDetailsOfUser} from './selectors';
 
 import reducer from './reducer';
 import saga from './saga';
@@ -17,7 +17,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = createStructuredSelector({
-  detailOfFilm: makeDetailsOfFilm()
+  detailOfFilm: makeDetailsOfFilm(),
+  detailOfUser: makeDetailsOfUser()
 });
 
 const withConnect = connect(

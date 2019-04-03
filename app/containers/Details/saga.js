@@ -10,17 +10,22 @@ import {makeSelectId} from './selectors';
 import {LOAD_DETAIL_MOVIE} from './constants';
 
 /**
- * punk api beers request/response handler
+ * omdb api request/response handler
  */
 export function* getMovieDetails() {
   const parameter = yield select(makeSelectId());
 
-  const requestURL = `http://www.omdbapi.com/?i=${parameter}&apikey=aaac1593&plot=full`;
+  const requestFilmURL = `http://www.omdbapi.com/?i=${parameter}&apikey=aaac1593&plot=full`;
+
+  const requestProfileOfUser = `http://localhost:3004/films?id=${parameter}`;
+
 
   try {
     // Call our request helper (see 'utils/request')
-    const response = yield call(request, requestURL);
-    yield put(loadedDetailMovie(response, parameter));
+    const responseFilm = yield call(request, requestFilmURL);
+    const responseProfile = yield call(request, requestProfileOfUser);
+    
+    yield put(loadedDetailMovie({responseFilm,responseProfile}, parameter));
   } catch (err) {
     yield put(movieLoadingError(err));
   }

@@ -33,14 +33,14 @@ export function loadDetailMovie(id) {
 /**
  * Dispatched when loading the movie fails
  *
- * @param  {object} movie The detail of film
+ * @param  {object} movieData  The detail of film and detail of user
  *
  * @return {object}       An action object with a type of SUCCESS_DETAIL_MOVIE
  */
-export function loadedDetailMovie(movie) {
+export function loadedDetailMovie(movieData) {
   return {
     type: SUCCESS_DETAIL_MOVIE,
-    movie
+    movieData
   };
 }
 
