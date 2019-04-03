@@ -1,11 +1,10 @@
 {
-  "posts": [
+  "films": [
     {
-      "id": 1,
-      "title": "hello"
+      "id": "tt3896198",
+      "voto": 3,
+      "preferito": false,
+      "visto": true
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
