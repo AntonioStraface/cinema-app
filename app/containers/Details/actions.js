@@ -22,7 +22,7 @@ import {
   LIKE_CHANGE,
   VOTE_CHANGE,
   EYE_CHANGE,
-  EYE_CHANGED
+  PROFILE_CHANGED
 } from './constants';
 
 /**
@@ -92,11 +92,11 @@ export function changeWatched() {
 /**
  * Dispatched when changed was finished
  *
- * @return {object}       An action object with a type of EYE_CHANGED and full response of object profile
+ * @return {object}       An action object with a type of PROFILE_CHANGED and full response of object profile
  */
-export function watchChanged(response) {
+export function profileChanged(response) {
   return {
-    type: EYE_CHANGED,
+    type: PROFILE_CHANGED,
     response
   };
 }

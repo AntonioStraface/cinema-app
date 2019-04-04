@@ -5,8 +5,8 @@
 import {call, put, select, takeLatest} from 'redux-saga/effects';
 import request from 'utils/request';
 
-import {loadedDetailMovie, movieLoadingError, watchChanged} from './actions';
-import {makeSelectId, makeWatchedSelector, makeDetailsOfUser} from './selectors';
+import {loadedDetailMovie, movieLoadingError, profileChanged} from './actions';
+import {makeSelectId, makeDetailsOfUser} from './selectors';
 import {LOAD_DETAIL_MOVIE, EYE_CHANGE} from './constants';
 
 /**
@@ -30,7 +30,7 @@ export function* getMovieDetails() {
   }
 }
 
-export function* changeWatched() {
+export function* changeProfile() {
   const detailsProfile = yield select(makeDetailsOfUser());
   const parameter = yield select(makeSelectId());
 
@@ -38,7 +38,7 @@ export function* changeWatched() {
 
   try {
     // Call our request helper (see 'utils/request')
-    const responseWatched = yield call(request, requestProfileOfUser, {
+    const responseProfile = yield call(request, requestProfileOfUser, {
       method: 'put',
       headers: {
         Accept: 'application/json',
@@ -46,7 +46,7 @@ export function* changeWatched() {
       },
       body: JSON.stringify(detailsProfile)
     });
-    yield put(watchChanged(responseWatched));
+    yield put(profileChanged(responseProfile));
   } catch (err) {
     yield put(movieLoadingError(err));
   }
@@ -64,5 +64,5 @@ export default function* listeners() {
   // Watches for EYE_CHANGE actions and calls changeWatched when one comes in.
   // By using `takeLatest` only the result of the latest API call is applied.
   // It will be cancelled automatically on component unmount
-  yield takeLatest(EYE_CHANGE, changeWatched);
+  yield takeLatest(EYE_CHANGE, changeProfile);
 }

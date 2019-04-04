@@ -1,8 +1,9 @@
 {
   "films": [
     {
-      "visto": true,
-      "id": "tt3896198"
+      "id": "tt3896198",
+      "visto": false,
+      "voto": 0
     }
   ]
 }
