@@ -8,11 +8,20 @@ import {makeDetailsOfFilm, makeDetailsOfUser} from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import Details from './details';
-import {loadDetailMovie} from './actions';
+import {loadDetailMovie, changeLike, changeVote, changeWatched} from './actions';
 
 const mapDispatchToProps = (dispatch) => ({
   getFilmDetails: (id) => {
     dispatch(loadDetailMovie(id));
+  },
+  hanlderOnLike: () => {
+    dispatch(changeLike());
+  },
+  handlerOnStar: (value) => {
+    dispatch(changeVote(value));
+  },
+  hanlderOnWatched: () => {
+    dispatch(changeWatched());
   }
 });
 

@@ -18,10 +18,28 @@ const makeDetailsOfFilm = () =>
     (detailState) => detailState.get('detailsOfFilm')
   );
 
-const makeDetailsOfUser = () => 
+const makeDetailsOfUser = () =>
   createSelector(
     selectDetails,
-    (detailState) => detailState.get('detailsOfUser') 
-  )
+    (detailState) => detailState.get('detailsOfUser')
+  );
 
-export {makeDetailsOfFilm, makeSelectId,makeDetailsOfUser};
+const makeWatchedSelector = () =>
+  createSelector(
+    makeDetailsOfUser,
+    (detailState) => detailState.get('visto')
+  );
+
+const makeLikeSelector = () =>
+  createSelector(
+    makeDetailsOfUser,
+    (detailState) => detailState.get('preferito')
+  );
+
+const makeVotesSelector = () =>
+  createSelector(
+    makeDetailsOfUser,
+    (detailState) => detailState.get('voti')
+  );
+
+export {makeDetailsOfFilm, makeSelectId, makeDetailsOfUser, makeWatchedSelector, makeVotesSelector, makeLikeSelector};

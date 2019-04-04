@@ -22,11 +22,7 @@ export default class Details extends React.PureComponent {
   }
 
   render() {
-    const {detailOfFilm,detailOfUser} = this.props;
-
-    console.count()
-
-    console.log(detailOfFilm);
+    const {handlerOnStar, hanlderOnWatched, handlerOnLike, detailOfFilm, detailOfUser} = this.props;
 
     console.log(detailOfUser);
 
@@ -39,14 +35,23 @@ export default class Details extends React.PureComponent {
         </Helmet>
         <Header showForm />
         {detail}
-        <UserInteraction detailsOfUser={detailOfUser}></UserInteraction>
+        <UserInteraction
+          handlerOnStar={handlerOnStar}
+          hanlderOnWatched={hanlderOnWatched}
+          handlerOnLike={handlerOnLike}
+          detailsOfUser={detailOfUser}
+        />
       </React.Fragment>
     );
   }
 }
 
 Details.propTypes = {
+  handlerOnStar: PropTypes.func,
+  hanlderOnWatched: PropTypes.func,
+  handlerOnLike: PropTypes.func,
   getFilmDetails: PropTypes.func,
   match: PropTypes.object,
-  detailOfFilm: PropTypes.object
+  detailOfFilm: PropTypes.object,
+  detailOfUser: PropTypes.object
 };

@@ -15,7 +15,15 @@
  *    }
  */
 
-import {LOAD_DETAIL_MOVIE, SUCCESS_DETAIL_MOVIE, LOAD_MOVIE_ERROR} from './constants';
+import {
+  LOAD_DETAIL_MOVIE,
+  SUCCESS_DETAIL_MOVIE,
+  LOAD_MOVIE_ERROR,
+  LIKE_CHANGE,
+  VOTE_CHANGE,
+  EYE_CHANGE,
+  EYE_CHANGED
+} from './constants';
 
 /**
  * load details of film
@@ -41,6 +49,55 @@ export function loadedDetailMovie(movieData) {
   return {
     type: SUCCESS_DETAIL_MOVIE,
     movieData
+  };
+}
+
+/**
+ * Dispatched when click like
+ *
+ *
+ * @return {object}       An action object with a type of LIKE_CHANGE
+ */
+export function changeLike() {
+  return {
+    type: LIKE_CHANGE
+  };
+}
+
+/**
+ * Dispatched when click Stars
+ *
+ * @param  {int} value The new vote for a movie
+ *
+ * @return {object}       An action object with a type of VOTE_CHANGE
+ */
+export function changeVote(value) {
+  return {
+    type: VOTE_CHANGE,
+    value
+  };
+}
+
+/**
+ * Dispatched when click eye
+ *
+ * @return {object}       An action object with a type of EYE_CHANGE
+ */
+export function changeWatched() {
+  return {
+    type: EYE_CHANGE
+  };
+}
+
+/**
+ * Dispatched when changed was finished
+ *
+ * @return {object}       An action object with a type of EYE_CHANGED and full response of object profile
+ */
+export function watchChanged(response) {
+  return {
+    type: EYE_CHANGED,
+    response
   };
 }
 

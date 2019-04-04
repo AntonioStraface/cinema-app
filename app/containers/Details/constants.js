@@ -12,3 +12,7 @@
 export const LOAD_DETAIL_MOVIE = 'cinema-app/Details/LOAD_DETAIL_MOVIE';
 export const SUCCESS_DETAIL_MOVIE = 'cinema-app/Details/SUCCESS_DETAIL_MOVIE';
 export const LOAD_MOVIE_ERROR = 'cinema-app/Details/LOAD_MOVIE_ERROR';
+export const LIKE_CHANGE = 'cinema-app/Details/LIKE_CHANGE';
+export const VOTE_CHANGE = 'cinema-app/Details/VOTE_CHANGE';
+export const EYE_CHANGE = 'cinema-app/Details/EYE_CHANGE';
+export const EYE_CHANGED = 'cinema-app/Details/EYE_CHANGED';
