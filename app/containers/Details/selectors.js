@@ -3,6 +3,7 @@
  */
 
 import {createSelector} from 'reselect';
+import { fromJS } from 'immutable';
 
 const selectDetails = (state) => state.get('details');
 
@@ -21,7 +22,14 @@ const makeDetailsOfFilm = () =>
 const makeDetailsOfUser = () =>
   createSelector(
     selectDetails,
-    (detailState) => detailState.getIn(['detailsOfUser']).toJS()
+    (detailState) =>   detailState.getIn(['detailsOfUser']) ? detailState.getIn(['detailsOfUser']).toJS() : fromJS({})
   );
 
-export {makeDetailsOfFilm, makeSelectId, makeDetailsOfUser};
+
+  const makeMethod = () =>
+  createSelector(
+    selectDetails,
+    (detailState) =>   detailState.get('method')
+  );  
+
+export {makeDetailsOfFilm, makeSelectId, makeDetailsOfUser, makeMethod};

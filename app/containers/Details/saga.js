@@ -6,7 +6,7 @@ import {call, put, select, takeLatest} from 'redux-saga/effects';
 import request from 'utils/request';
 
 import {loadedDetailMovie, movieLoadingError, profileChanged} from './actions';
-import {makeSelectId, makeDetailsOfUser} from './selectors';
+import {makeSelectId, makeDetailsOfUser, makeMethod} from './selectors';
 import {LOAD_DETAIL_MOVIE, EYE_CHANGE, LIKE_CHANGE, VOTE_CHANGE} from './constants';
 
 /**
@@ -32,14 +32,15 @@ export function* getMovieDetails() {
 
 export function* changeProfile() {
   const detailsProfile = yield select(makeDetailsOfUser());
-  const parameter = yield select(makeSelectId());
+  const method = yield select(makeMethod());
+  const parameter = yield select(makeSelectId())
 
-  const requestProfileOfUser = `http://localhost:3004/films/${parameter}`;
+  const requestProfileOfUser = method === 'put' ? `http://localhost:3004/films/${parameter}` : `http://localhost:3004/films`;
 
   try {
     // Call our request helper (see 'utils/request')
     const responseProfile = yield call(request, requestProfileOfUser, {
-      method: 'put',
+      method: method,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -48,7 +49,8 @@ export function* changeProfile() {
     });
     yield put(profileChanged(responseProfile));
   } catch (err) {
-    // yield put(movieLoadingError(err));
+    console.log(err);
+    // yield put(movieLoadingError(err)); todo revert if there is an error
   }
 }
 

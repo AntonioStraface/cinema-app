@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Placeholder from './images/placeholder.png';
 
@@ -12,9 +13,10 @@ class SearchList extends React.Component {
       <section className="search-list">
         {listItems.map((item) => (
           <article className="search-list__item" key={item.imdbID}>
-            <a>
+           
+            <Link to={`/details/${item.imdbID}`} >
               <img alt={item.Title} src={item.Poster !== 'N/A' ? item.Poster : Placeholder} />
-            </a>
+            </Link>
             <div className="search-list__item-info">
               <h3>{item.Title}</h3>
               <span>{item.Year}</span>

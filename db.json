@@ -1,10 +1,13 @@
 {
   "films": [
     {
-      "id": "tt3896198",
-      "visto": true,
-      "voto": 3,
-      "piace": true
+      "id": "tt0839980",
+      "voto": 3
+    },
+    {
+      "id": "tt0414426",
+      "voto": 2,
+      "piace": false
     }
   ]
 }
