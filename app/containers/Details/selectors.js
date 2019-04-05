@@ -21,25 +21,7 @@ const makeDetailsOfFilm = () =>
 const makeDetailsOfUser = () =>
   createSelector(
     selectDetails,
-    (detailState) => detailState.get('detailsOfUser')
+    (detailState) => detailState.getIn(['detailsOfUser']).toJS()
   );
 
-const makeWatchedSelector = () =>
-  createSelector(
-    makeDetailsOfUser,
-    (detailState) => detailState.get('visto')
-  );
-
-const makeLikeSelector = () =>
-  createSelector(
-    makeDetailsOfUser,
-    (detailState) => detailState.get('preferito')
-  );
-
-const makeVotesSelector = () =>
-  createSelector(
-    makeDetailsOfUser,
-    (detailState) => detailState.get('voti')
-  );
-
-export {makeDetailsOfFilm, makeSelectId, makeDetailsOfUser, makeWatchedSelector, makeVotesSelector, makeLikeSelector};
+export {makeDetailsOfFilm, makeSelectId, makeDetailsOfUser};

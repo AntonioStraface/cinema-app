@@ -7,7 +7,7 @@ import request from 'utils/request';
 
 import {loadedDetailMovie, movieLoadingError, profileChanged} from './actions';
 import {makeSelectId, makeDetailsOfUser} from './selectors';
-import {LOAD_DETAIL_MOVIE, EYE_CHANGE} from './constants';
+import {LOAD_DETAIL_MOVIE, EYE_CHANGE, LIKE_CHANGE, VOTE_CHANGE} from './constants';
 
 /**
  * omdb api request/response handler
@@ -48,7 +48,7 @@ export function* changeProfile() {
     });
     yield put(profileChanged(responseProfile));
   } catch (err) {
-    yield put(movieLoadingError(err));
+    // yield put(movieLoadingError(err));
   }
 }
 
@@ -65,4 +65,14 @@ export default function* listeners() {
   // By using `takeLatest` only the result of the latest API call is applied.
   // It will be cancelled automatically on component unmount
   yield takeLatest(EYE_CHANGE, changeProfile);
+
+  // Watches for LIKE_CHANGE actions and calls changeWatched when one comes in.
+  // By using `takeLatest` only the result of the latest API call is applied.
+  // It will be cancelled automatically on component unmount
+  yield takeLatest(LIKE_CHANGE, changeProfile);
+
+  // Watches for VOTE_CHANGE actions and calls changeWatched when one comes in.
+  // By using `takeLatest` only the result of the latest API call is applied.
+  // It will be cancelled automatically on component unmount
+  yield takeLatest(VOTE_CHANGE, changeProfile);
 }

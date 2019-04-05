@@ -22,11 +22,10 @@ export default class Details extends React.PureComponent {
   }
 
   render() {
-    const {handlerOnStar, hanlderOnWatched, handlerOnLike, detailOfFilm, detailOfUser} = this.props;
-
-    console.log(detailOfUser);
+    const {handlerOnStar, hanlderOnWatched, handlerOnLike, detailOfFilm, detailsOfUser} = this.props;
 
     const detail = detailOfFilm.Ratings !== undefined ? <ArticleDetails item={detailOfFilm} /> : null;
+
     return (
       <React.Fragment>
         <Helmet>
@@ -34,13 +33,15 @@ export default class Details extends React.PureComponent {
           <meta name="description" content="Detail of film" />
         </Helmet>
         <Header showForm />
-        {detail}
-        <UserInteraction
-          handlerOnStar={handlerOnStar}
-          hanlderOnWatched={hanlderOnWatched}
-          handlerOnLike={handlerOnLike}
-          detailsOfUser={detailOfUser}
-        />
+        <div className="wrapper-details">
+          {detail}
+          <UserInteraction
+            handlerOnStar={handlerOnStar}
+            hanlderOnWatched={hanlderOnWatched}
+            handlerOnLike={handlerOnLike}
+            detailsOfUser={detailsOfUser}
+          />
+        </div>
       </React.Fragment>
     );
   }
@@ -53,5 +54,5 @@ Details.propTypes = {
   getFilmDetails: PropTypes.func,
   match: PropTypes.object,
   detailOfFilm: PropTypes.object,
-  detailOfUser: PropTypes.object
+  detailsOfUser: PropTypes.object
 };

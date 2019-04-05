@@ -14,11 +14,11 @@ const mapDispatchToProps = (dispatch) => ({
   getFilmDetails: (id) => {
     dispatch(loadDetailMovie(id));
   },
-  hanlderOnLike: () => {
+  handlerOnLike: () => {
     dispatch(changeLike());
   },
   handlerOnStar: (value) => {
-    dispatch(changeVote(value));
+    dispatch(changeVote(parseInt(value.target.getAttribute('data-value'), 10)));
   },
   hanlderOnWatched: () => {
     dispatch(changeWatched());
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = createStructuredSelector({
   detailOfFilm: makeDetailsOfFilm(),
-  detailOfUser: makeDetailsOfUser()
+  detailsOfUser: makeDetailsOfUser()
 });
 
 const withConnect = connect(

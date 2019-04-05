@@ -5,18 +5,38 @@
   left: 0;
   bottom: 0;
   height: 50px;
-  background-color: #1c1c1c;
   width: 100%;
   text-align: center;
   align-items: center;
   font-size: 20px;
+  background-color: #a9a9a961;
 
-  @media (min-width: 1023px) { 
-    position: static;
-    margin-top: 20px;
-    position: static;
-    width: 30%;
-    margin: 0 auto;
+  @media (min-width: 1023px) {
+    position: absolute;
+    margin-top: 0;
+    right: 0;
+    width: calc(99% - 400px);
+    left: auto;
+    top: 0;
+  }
+
+  button {
+    transition: 0.5s all;
+    color: yellow;
+    height: 100%;
+    cursor: pointer;
+
+    &.far {
+      opacity: 0.1;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &.fas {
+      opacity: 1;
+    }
   }
 
   &__watched {
@@ -25,15 +45,19 @@
 
   &__votes {
     width: 60%;
+    height: 100%;
+    opacity: 0.3;
 
-    li {
-      margin: 4px;
+    &--active {
+      opacity: 1;
+    }
+
+    button {
+      padding: 16px 4%;
     }
   }
 
   &__like {
     width: 20%;
   }
-
 }
-

@@ -4,17 +4,37 @@ import PropTypes from 'prop-types';
 
 class userInteraction extends React.Component {
   render() {
-    const {stars, hanlderOnWatched} = this.props;
+    const {stars, hanlderOnWatched, handlerOnLike, detailsOfUser, handlerOnStar} = this.props;
+
+    const likeClass = detailsOfUser.piace ? 'fas' : 'far';
+    const watchClass = detailsOfUser.visto ? 'fas' : 'far';
+    const voteClass = detailsOfUser.voto > 0 ? 'userInteraction__votes--active' : '';
 
     return (
       <section className="userInteraction">
-        <i className="userInteraction__watched far fa-eye" onClick={hanlderOnWatched} />
-        <ul className="userInteraction__votes">
-          {stars.map((star) => (
-            <li className={`star-${star} far fa-star`} key={`star-${star}`} />
-          ))}
-        </ul>
-        <i className="userInteraction__like far fa-thumbs-up" />
+        <button className={`userInteraction__watched ${watchClass} fa-eye`} type="button" onClick={hanlderOnWatched} />
+        <section className={`userInteraction__votes ${voteClass}`}>
+          {stars.map((star) => {
+            return detailsOfUser.voto >= star ? (
+              <button
+                className={`star-${star} fas fa-star`}
+                key={`star-${star}`}
+                onClick={handlerOnStar}
+                type="button"
+                data-value={star}
+              />
+            ) : (
+              <button
+                className={`star-${star} far fa-star`}
+                key={`star-${star}`}
+                onClick={handlerOnStar}
+                type="button"
+                data-value={star}
+              />
+            );
+          })}
+        </section>
+        <button className={`userInteraction__like ${likeClass} fa-thumbs-up`} type="button" onClick={handlerOnLike} />
       </section>
     );
   }
@@ -26,7 +46,10 @@ userInteraction.defaultProps = {
 
 userInteraction.propTypes = {
   stars: PropTypes.array,
-  hanlderOnWatched: PropTypes.func
+  hanlderOnWatched: PropTypes.func,
+  detailsOfUser: PropTypes.object,
+  handlerOnLike: PropTypes.func,
+  handlerOnStar: PropTypes.func
 };
 
 export default userInteraction;

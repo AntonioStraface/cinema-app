@@ -2,8 +2,9 @@
   "films": [
     {
       "id": "tt3896198",
-      "visto": false,
-      "voto": 0
+      "visto": true,
+      "voto": 3,
+      "piace": true
     }
   ]
 }
