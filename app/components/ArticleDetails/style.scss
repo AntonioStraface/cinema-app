@@ -12,7 +12,10 @@
   &__image {
     width: 35%;
     min-width: 150px;
-    max-width: 400px;
+
+    @media (min-width: 1023px) {
+      max-width: 350px;
+    }
 
     img {
       width: 100%;
@@ -122,6 +125,16 @@
 
     @media (min-width: 767px) {
       font-size: 16px;
+    }
+
+    @media (min-width: 1023px) {
+      position: absolute;
+      margin-top: 0;
+      right: 0;
+      width: calc(99% - 350px);
+      left: auto;
+      text-align: justify;
+      bottom: 0;
     }
   }
 }

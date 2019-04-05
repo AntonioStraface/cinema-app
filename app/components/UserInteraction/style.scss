@@ -9,13 +9,13 @@
   text-align: center;
   align-items: center;
   font-size: 20px;
-  background-color: #a9a9a961;
+  background-color: gray;
 
   @media (min-width: 1023px) {
     position: absolute;
     margin-top: 0;
     right: 0;
-    width: calc(99% - 400px);
+    width: calc(99% - 350px);
     left: auto;
     top: 0;
   }
