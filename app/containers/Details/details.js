@@ -22,7 +22,7 @@ export default class Details extends React.PureComponent {
   }
 
   render() {
-    const {handlerOnStar, hanlderOnWatched, handlerOnLike, detailOfFilm, detailsOfUser} = this.props;
+    const {handlerOnStar, hanlderOnWatched, handlerOnLike, detailOfFilm, detailsOfUser, showForm} = this.props;
 
     const detail = detailOfFilm.Ratings !== undefined ? <ArticleDetails item={detailOfFilm} /> : null;
 
@@ -32,7 +32,7 @@ export default class Details extends React.PureComponent {
           <title>Details Page</title>
           <meta name="description" content="Detail of film" />
         </Helmet>
-        <Header showForm />
+        <Header showForm={showForm} />
         <div className="wrapper-details">
           {detail}
           <UserInteraction
@@ -47,6 +47,10 @@ export default class Details extends React.PureComponent {
   }
 }
 
+Details.defaultProps = {
+  showForm: false
+};
+
 Details.propTypes = {
   handlerOnStar: PropTypes.func,
   hanlderOnWatched: PropTypes.func,
@@ -54,5 +58,6 @@ Details.propTypes = {
   getFilmDetails: PropTypes.func,
   match: PropTypes.object,
   detailOfFilm: PropTypes.object,
-  detailsOfUser: PropTypes.object
+  detailsOfUser: PropTypes.object,
+  showForm: PropTypes.bool
 };
