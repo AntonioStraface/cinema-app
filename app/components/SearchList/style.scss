@@ -1,8 +1,10 @@
+@import '../../styles/variables';
+
 .search-list {
     display: flex;
     flex-direction: column; 
     
-    @media(min-width : 767px) {
+    @media(min-width: $tablet-1) {
         flex-flow: row wrap;
     }
 
@@ -11,13 +13,13 @@
         display: flex;
         margin: 0 10px;
         padding: 10px 0;
-        border-bottom: 1px solid #3a3a3a;
+        border-bottom: 1px solid $gray-4;
 
-        @media(min-width: 767px) {
+        @media(min-width: $tablet-1) {
             width: calc(50% - 20px);
         }
 
-        @media(min-width: 1280px) {
+        @media(min-width: $desktop-1) {
             width: calc(33.33333% - 20px);
         }
 
@@ -33,7 +35,7 @@
         margin: 0 0 0 20px;
 
         h3 {
-            color: yellow;
+            color: $primary;
             padding: 0;
             margin: 0 0 6px 0;
             font-size: 16px;
@@ -41,7 +43,7 @@
         }
 
         span {
-            color: gray;
+            color: $gray-2;
             font-size: 13px;
         }
     }

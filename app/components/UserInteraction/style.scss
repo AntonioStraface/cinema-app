@@ -1,5 +1,7 @@
+@import '../../styles/variables';
+
 .userInteraction {
-  color: yellow;
+  color: $primary;
   display: flex;
   position: fixed;
   left: 0;
@@ -9,20 +11,20 @@
   text-align: center;
   align-items: center;
   font-size: 20px;
-  background-color: #1c1c1c;
+  background-color: $gray-1;
 
-  @media (min-width: 1023px) {
+  @media (min-width: $tablet-2) {
     position: absolute;
     margin-top: 0;
     right: 0;
-    width: calc(99% - 350px);
+    width: calc(99% - #{$max-width-image});
     left: auto;
     top: 0;
   }
 
   button {
     transition: 0.5s all;
-    color: yellow;
+    color: $primary;
     height: 100%;
     cursor: pointer;
 
