@@ -12,8 +12,13 @@ class userInteraction extends React.Component {
 
     return (
       <section className="userInteraction">
-        <button className={`userInteraction__watched ${watchClass} fa-eye`} type="button" onClick={hanlderOnWatched} />
-        <section className={`userInteraction__votes ${voteClass}`}>
+        <button
+          title="visto"
+          className={`userInteraction__watched ${watchClass} fa-eye`}
+          type="button"
+          onClick={hanlderOnWatched}
+        />
+        <section title="voto" className={`userInteraction__votes ${voteClass}`}>
           {stars.map((star) => {
             return detailsOfUser.voto >= star ? (
               <button
@@ -34,7 +39,12 @@ class userInteraction extends React.Component {
             );
           })}
         </section>
-        <button className={`userInteraction__like ${likeClass} fa-thumbs-up`} type="button" onClick={handlerOnLike} />
+        <button
+          title="piace"
+          className={`userInteraction__like ${likeClass} fa-thumbs-up`}
+          type="button"
+          onClick={handlerOnLike}
+        />
       </section>
     );
   }

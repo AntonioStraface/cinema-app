@@ -2,7 +2,7 @@
   "films": [
     {
       "id": "tt0839980",
-      "voto": 5
+      "voto": 4
     },
     {
       "id": "tt0414426",
@@ -27,6 +27,40 @@
     {
       "id": "tt0076569",
       "voto": 3
+    },
+    {
+      "id": "tt0870089",
+      "piace": true,
+      "voto": 3
+    },
+    {
+      "id": "tt3956334",
+      "voto": 1,
+      "visto": true
+    },
+    {
+      "id": "tt0363861",
+      "piace": true
+    },
+    {
+      "id": "tt0414901",
+      "voto": 3,
+      "piace": true,
+      "visto": false
+    },
+    {
+      "id": "tt4131188",
+      "voto": 1
+    },
+    {
+      "id": "tt1767306",
+      "voto": 3,
+      "visto": false
+    },
+    {
+      "id": "tt7273648",
+      "voto": 3,
+      "visto": true
     }
   ]
 }

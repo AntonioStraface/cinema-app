@@ -2,7 +2,7 @@
  * Gets the movies from punk api
  */
 
-import {call, put, select, takeLatest} from 'redux-saga/effects';
+import {call, put, select, takeLatest, all} from 'redux-saga/effects';
 import request from 'utils/request';
 
 import {loadedDetailMovie, movieLoadingError, profileChanged, profileError} from './actions';
@@ -22,8 +22,10 @@ export function* getMovieDetails() {
 
   try {
     // Call our request helper (see 'utils/request')
-    const responseFilm = yield call(request, requestFilmURL);
-    const responseProfile = yield call(request, requestProfileOfUser);
+    const [responseFilm, responseProfile] = yield all([
+      call(request, requestFilmURL),
+      call(request, requestProfileOfUser)
+    ]);
 
     yield put(loadedDetailMovie({responseFilm, responseProfile}, parameter));
   } catch (err) {
