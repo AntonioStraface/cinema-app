@@ -38,7 +38,9 @@ class SearchList extends React.Component {
   }
 }
 
-SearchList.defaultProps = {};
+SearchList.defaultProps = {
+  listItems: []
+};
 
 SearchList.propTypes = {
   listItems: PropTypes.array

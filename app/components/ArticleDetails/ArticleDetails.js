@@ -37,7 +37,18 @@ class ArticleDetails extends React.Component {
   }
 }
 
-ArticleDetails.defaultProps = {};
+ArticleDetails.defaultProps = {
+  item: {
+    Title: '',
+    Poster: '',
+    imdbID: '',
+    Year: '',
+    Director: '',
+    Genre: '',
+    Plot: '',
+    Ratings: []
+  }
+};
 
 ArticleDetails.propTypes = {
   item: PropTypes.object

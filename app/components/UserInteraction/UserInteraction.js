@@ -41,7 +41,12 @@ class userInteraction extends React.Component {
 }
 
 userInteraction.defaultProps = {
-  stars: [1, 2, 3, 4, 5]
+  stars: [1, 2, 3, 4, 5],
+  detailsOfUser: {
+    visto: false,
+    piace: false,
+    voto: 0
+  }
 };
 
 userInteraction.propTypes = {

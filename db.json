@@ -2,7 +2,7 @@
   "films": [
     {
       "id": "tt0839980",
-      "voto": 3
+      "voto": 5
     },
     {
       "id": "tt0414426",
@@ -12,7 +12,8 @@
     {
       "id": "tt0294239",
       "voto": 2,
-      "visto": true
+      "visto": true,
+      "piace": true
     },
     {
       "id": "tt4102304",
@@ -22,6 +23,10 @@
       "id": "tt0094712",
       "voto": 3,
       "visto": true
+    },
+    {
+      "id": "tt0076569",
+      "voto": 3
     }
   ]
 }
