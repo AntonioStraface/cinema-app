@@ -19,7 +19,7 @@ npm i
 Install json-server to run mock server
 
 ```
-npm install -g json-server
+npm i -g json-server
 ```
 
 Run the project (http://localhost:3000)
