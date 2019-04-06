@@ -3,8 +3,8 @@ import {compose} from 'redux';
 import {createStructuredSelector} from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import {makeSelectLoading, makeSelectError} from 'containers/App/selectors';
-import {makeSelectSearchStatus, makeListOfMovies} from './selectors';
+import {makeSelectError} from 'containers/App/selectors';
+import {makeSelectSearchStatus, makeListOfMovies, makeSelectLoading} from './selectors';
 
 import reducer from './reducer';
 import saga from './saga';

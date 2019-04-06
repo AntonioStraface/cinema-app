@@ -15,12 +15,12 @@ class ArticleDetails extends React.Component {
             <img alt={item.Title} src={item.Poster !== 'N/A' ? item.Poster : Placeholder} />
           </div>
           <div className="articleDetails__info">
-            <div className="articleDetails__description">
+            <section className="articleDetails__description">
               <h3>{item.Title}</h3>
               <span>{item.Year}</span>
               <span>{item.Director}</span>
               <span>{item.Genre}</span>
-            </div>
+            </section>
             <ul className="articleDetails__votes">
               {item.Ratings.map((vote) => (
                 <li key={vote.Source} title={vote.Source}>
@@ -31,7 +31,7 @@ class ArticleDetails extends React.Component {
             </ul>
           </div>
         </div>
-        <div className="articleDetails__plot">{item.Plot}</div>
+        <p className="articleDetails__plot">{item.Plot}</p>
       </article>
     );
   }

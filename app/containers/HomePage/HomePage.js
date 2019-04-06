@@ -10,12 +10,13 @@ import {Helmet} from 'react-helmet';
 
 import Header from 'components/Header';
 import SearchList from 'components/SearchList';
+import Loader from 'components/LoadingIndicator';
 
 import './style.scss';
 
 export default class HomePage extends React.PureComponent {
   render() {
-    const {handlerOpenSearch, handlerResultList, handlerCloseSearch, searchStatus, listItems} = this.props;
+    const {handlerOpenSearch, handlerResultList, handlerCloseSearch, searchStatus, listItems, loading} = this.props;
 
     const listItemsProp = !listItems ? [] : listItems;
 
@@ -23,7 +24,7 @@ export default class HomePage extends React.PureComponent {
       <React.Fragment>
         <Helmet>
           <title>Home Page</title>
-          <meta name="description" content="A React.js Boilerplate application homepage" />
+          <meta name="description" content="Cinema app application homepage" />
         </Helmet>
         <Header
           handlerResultList={handlerResultList}
@@ -31,9 +32,7 @@ export default class HomePage extends React.PureComponent {
           handlerCloseSearch={handlerCloseSearch}
           searchStatus={searchStatus}
         />
-        <div className="home-page">
-          <SearchList listItems={listItemsProp} />
-        </div>
+        <div className="home-page">{loading ? <Loader /> : <SearchList listItems={listItemsProp} />}</div>
       </React.Fragment>
     );
   }
@@ -44,5 +43,6 @@ HomePage.propTypes = {
   handlerResultList: PropTypes.func,
   handlerCloseSearch: PropTypes.func,
   searchStatus: PropTypes.string,
-  listItems: PropTypes.array
+  listItems: PropTypes.array,
+  loading: PropTypes.bool
 };
