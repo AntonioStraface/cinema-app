@@ -16,10 +16,9 @@
     }
   },
   "rules": {
-    "no-param-reassign": "off",
     "function-paren-newline": "off",
     "arrow-parens": ["error", "always"],
-    "arrow-body-style": [2, "as-needed"],
+    "arrow-body-style": 0,
     "implicit-arrow-linebreak": [0],
     "comma-dangle": ["error", "only-multiline"],
     "import/no-extraneous-dependencies": 0,
@@ -48,7 +47,8 @@
     "redux-saga/yield-effects": 2,
     "jsx-a11y/anchor-is-valid": 0,
     "react/jsx-one-expression-per-line": 0,
-    "react/prefer-stateless-function": 0
+    "react/prefer-stateless-function": 0,
+    "react/button-has-type": 0
   },
   "settings": {
     "import/resolver": {
