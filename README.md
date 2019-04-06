@@ -2,13 +2,7 @@
 
 Find your preferred movies and save them
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
 ### Installing
-
-A step by step series of examples that tell you how to get a development env running
 
 The first step is download the repo and execute in root folder
 
