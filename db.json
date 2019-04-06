@@ -8,6 +8,15 @@
       "id": "tt0414426",
       "voto": 4,
       "piace": false
+    },
+    {
+      "id": "tt0294239",
+      "voto": 2,
+      "visto": true
+    },
+    {
+      "id": "tt4102304",
+      "voto": 3
     }
   ]
 }

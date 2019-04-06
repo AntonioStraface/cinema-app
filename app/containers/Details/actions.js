@@ -22,7 +22,8 @@ import {
   LIKE_CHANGE,
   VOTE_CHANGE,
   EYE_CHANGE,
-  PROFILE_CHANGED
+  PROFILE_CHANGED,
+  PROFILE_ERROR
 } from './constants';
 
 /**
@@ -111,6 +112,20 @@ export function profileChanged(response) {
 export function movieLoadingError(error) {
   return {
     type: LOAD_MOVIE_ERROR,
+    error
+  };
+}
+
+/**
+ * Dispatched when change the profile fails
+ *
+ * @param  {object} error The error
+ *
+ * @return {object}       An action object with a type of PROFILE_ERROR passing the error
+ */
+export function profileError(error) {
+  return {
+    type: PROFILE_ERROR,
     error
   };
 }

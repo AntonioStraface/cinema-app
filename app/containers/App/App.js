@@ -12,21 +12,17 @@ import {Switch, Route} from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import Details from 'containers/Details/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Footer from 'components/Footer';
 import './style.scss';
 
 const App = () => (
   <main className="app-wrapper">
-    <Helmet titleTemplate="%s - React.js Boilerplate" defaultTitle="React.js Boilerplate">
-      <meta name="description" content="A React.js Boilerplate application" />
+    <Helmet titleTemplate="%s - Cinema APP" defaultTitle="Cinema APP">
+      <meta name="description" content="Cinema APP" />
     </Helmet>
     <Switch>
       <Route exact path="/" component={HomePage} />
       <Route path="/Details/:id" component={Details} />
-      <Route path="" component={NotFoundPage} />
     </Switch>
-    <Footer />
   </main>
 );
 

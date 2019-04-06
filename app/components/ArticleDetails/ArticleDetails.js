@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
 
-import Placeholder from './images/placeholder.png';
+import Placeholder from '../../images/placeholder.png';
 
 class ArticleDetails extends React.Component {
   render() {

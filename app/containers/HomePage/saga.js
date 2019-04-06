@@ -8,6 +8,7 @@ import request from 'utils/request';
 import {moviesLoaded, moviesLoadingError} from './actions';
 import {makeSelectSearchText} from './selectors';
 import {LOAD_MOVIES} from './constants';
+import {SERVERMOVIES, APIKEY} from '../App/constants';
 
 /**
  * punk api beers request/response handler
@@ -15,7 +16,7 @@ import {LOAD_MOVIES} from './constants';
 export function* getMovies() {
   const parameter = yield select(makeSelectSearchText());
 
-  const requestURL = `http://www.omdbapi.com/?s=${parameter}&type=movie&apikey=aaac1593`;
+  const requestURL = `${SERVERMOVIES}?s=${parameter}&type=movie&apikey=${APIKEY}`;
 
   try {
     // Call our request helper (see 'utils/request')

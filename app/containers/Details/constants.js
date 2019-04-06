@@ -16,3 +16,4 @@ export const LIKE_CHANGE = 'cinema-app/Details/LIKE_CHANGE';
 export const VOTE_CHANGE = 'cinema-app/Details/VOTE_CHANGE';
 export const EYE_CHANGE = 'cinema-app/Details/EYE_CHANGE';
 export const PROFILE_CHANGED = 'cinema-app/Details/PROFILE_CHANGED';
+export const PROFILE_ERROR = 'cinema-app/Details/PROFILE_ERROR';
